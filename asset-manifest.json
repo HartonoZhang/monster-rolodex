@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/monster-rolodex/static/css/main.e9c695fb.chunk.css",
+    "main.css": "/monster-rolodex/static/css/main.663ecdcd.chunk.css",
     "main.js": "/monster-rolodex/static/js/main.38508f87.chunk.js",
     "main.js.map": "/monster-rolodex/static/js/main.38508f87.chunk.js.map",
     "runtime-main.js": "/monster-rolodex/static/js/runtime-main.4024be3d.js",
@@ -10,13 +10,14 @@
     "static/js/3.817f0f08.chunk.js": "/monster-rolodex/static/js/3.817f0f08.chunk.js",
     "static/js/3.817f0f08.chunk.js.map": "/monster-rolodex/static/js/3.817f0f08.chunk.js.map",
     "index.html": "/monster-rolodex/index.html",
-    "static/css/main.e9c695fb.chunk.css.map": "/monster-rolodex/static/css/main.e9c695fb.chunk.css.map",
-    "static/js/2.54465f35.chunk.js.LICENSE.txt": "/monster-rolodex/static/js/2.54465f35.chunk.js.LICENSE.txt"
+    "static/css/main.663ecdcd.chunk.css.map": "/monster-rolodex/static/css/main.663ecdcd.chunk.css.map",
+    "static/js/2.54465f35.chunk.js.LICENSE.txt": "/monster-rolodex/static/js/2.54465f35.chunk.js.LICENSE.txt",
+    "static/media/card.style.css": "/monster-rolodex/static/media/character.6ebe1f59.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.4024be3d.js",
     "static/js/2.54465f35.chunk.js",
-    "static/css/main.e9c695fb.chunk.css",
+    "static/css/main.663ecdcd.chunk.css",
     "static/js/main.38508f87.chunk.js"
   ]
 }
