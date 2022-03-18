@@ -3,65 +3,39 @@ import "./App.css";
 import { CardList } from "./component/card-list/card-list.component";
 import { SearchBox } from "./component/search-box/search-box.component";
 
-import { Component } from "react";
+import { useEffect, useState } from "react";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+const App = () => {
+  const [searchField, setSearchField] = useState("");
+  const [monsters, setMonsters] = useState([]);
+  const [filterMonsters, setFilterMonsters] = useState(monsters);
 
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      monsters: [],
-      searchField: "",
-    };
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) => this.setState({ monsters: users }));
-  }
+      .then((users) => setMonsters(users));
+  }, []);
 
-  handleChange = (e) => {
-    this.setState({ searchField: e.target.value });
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLowerCase().includes(searchField);
+    });
+    setFilterMonsters(newFilteredMonsters);
+  }, [monsters, searchField]);
+
+  const onSearchChange = (event) => {
+    const searchString = event.target.value.toLowerCase();
+    setSearchField(searchString);
   };
 
-  render() {
-    const { monsters, searchField } = this.state;
-    const filteredMonsters = monsters.filter((monster) =>
-      monster.name.toLowerCase().includes(searchField.toLowerCase())
-    );
-    return (
-      <div className="App">
-        <h1>Monster Rolodex</h1>
-        <SearchBox
-          placeholder="Search Monster"
-          handleChange={this.handleChange}
-        />
-        <CardList monsters={filteredMonsters} />
-      </div>
-    );
-  }
-}
+
+  return (
+    <div className="App">
+      <h1>Monster Rolodex</h1>
+      <SearchBox placeholder="Search Monster" handleChange={onSearchChange} />
+      <CardList monsters={filterMonsters} />
+    </div>
+  );
+};
 
 export default App;
